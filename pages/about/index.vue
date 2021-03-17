@@ -11,7 +11,6 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorem, corporis odit eos doloribus quibusdam minima beatae neque ipsum blanditiis!</p>
           </div>
       </section>
-      about
   </div>
 </template>
 

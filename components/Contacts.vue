@@ -4,12 +4,12 @@
           <h2 class="title">Contact me!</h2>
           <form @submit.prevent="onSubmit" class="contact-form">
 
-              <label>Name:</label>
-              <input type="text" v-model="user.name">
-              <label>Email:</label>
-              <input type="text" v-model="user.email">
-              <label>Text:</label>
-              <textarea v-model="user.text"></textarea>
+              <!-- name -->
+              <AppInput v-model="user.name">Name:</AppInput>
+              <!-- email -->
+              <AppInput v-model="user.email" type="email">Email:</AppInput>
+              <!-- textarea -->
+              <AppTextArea v-model="user.text">Text:</AppTextArea>
 
                 <!-- BTNS -->
               <div class="controls">
@@ -23,10 +23,15 @@
 
 <script>
 import AppButton from '@/components/UI/controls/Button.vue'
+import AppInput from '@/components/UI/controls/Input.vue'
+import AppTextArea from '@/components/UI/controls/TextArea.vue'
+
 
 export default {
     components:{
-        AppButton
+        AppButton,
+        AppInput,
+        AppTextArea
     },
 data() {
     return {

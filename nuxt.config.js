@@ -25,6 +25,8 @@ export default {
   css: ['~/assets/scss/main.scss',],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  
+  // Глобальные компоненты на весь проект
   plugins: [
     '@/plugins/app-components.js'
   ],

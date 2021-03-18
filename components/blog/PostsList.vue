@@ -3,7 +3,11 @@
       <div class="container">
           <div class="posts__wrapper">
               <!-- {{posts}} -->
-              <PostPreview v-for="post in posts" :key="post.id" :post="post"/>
+              <PostPreview v-for="post in posts"
+               :key="post.id"
+               :post="post"
+               :admin="admin"
+               />
           </div>
       </div>
   </section>
@@ -18,9 +22,15 @@ export default {
     },
 
     props: {
+
         posts: {
             type:Array,
             required:true
+        },
+
+        admin: {
+            type:Boolean,
+            default:false
         }
     }
 }

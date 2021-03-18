@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import Intro from '@/components/UI/Intro.vue'
+// import Intro from '@/components/UI/Intro.vue'
 
 export default {
-components:{
-    Intro
-}
+// components:{
+//     Intro
+// }
 }
 </script>
 

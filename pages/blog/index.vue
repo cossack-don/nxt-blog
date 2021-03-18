@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import Intro from '@/components/UI/Intro.vue'
-import PostsList from '@/components/blog/PostsList.vue'
+// import Intro from '@/components/UI/Intro.vue'
+// import PostsList from '@/components/blog/PostsList.vue'
 
 export default {
-  components: {
-    Intro,
-    PostsList,
-  },
+  // components: {
+  //   Intro,
+  //   PostsList,
+  // },
   data() {
     return {
       posts: [

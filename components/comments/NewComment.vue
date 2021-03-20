@@ -33,6 +33,12 @@
 // import AppTextArea from '@/components/UI/controls/TextArea.vue'
 
 export default {
+    props: {
+        postid:{
+            type:String,
+            required:true
+        }
+    },
     // components:{
     //     AppButton,
     //     AppInput,
@@ -54,8 +60,8 @@ methods: {
     onSubmit() {
         this.$store.dispatch('actionAddComment',
          {
-            postid:'',
-            publish:false,
+            postid:this.postid,
+            publish:true,
             ...this.comment
         })
         .then( () => {

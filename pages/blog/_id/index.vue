@@ -18,7 +18,8 @@
 
             <Post :post="post"/>
             <Comments :comments="comments"/>
-            <NewComment/>
+            <!-- <p>{{comments}}</p> -->
+            <NewComment :postid="$route.params.id"/>
         </div>
 </template>
 
@@ -37,14 +38,34 @@ export default {
         NewComment,
         
     },
+
     async asyncData(context) {
         let [post, comments] = await Promise.all([
             axios.get(`https://nxt-blog-3562d-default-rtdb.firebaseio.com/posts/${context.params.id}.json`),
             axios.get(`https://nxt-blog-3562d-default-rtdb.firebaseio.com/comments.json`)
         ])
+
+// 1-ЫЙ ВАРИАНТ ! ОБА РАБОЧИЕ
+// 
+        // let commentsArray = [],
+        // commentsArrayRes = []
+        // Object.keys(comments.data).forEach(key => {
+        //     commentsArray.push(comments.data[key])
+        // })
+
+        // for(let i=0; i < commentsArray.length; i++) {
+        //     if(commentsArray[i].postid === context.params.id && commentsArray[i].publish === true) {
+        //         commentsArrayRes.push(commentsArray[i])
+        //     }
+        // }
+        
+// 2-Й ВАРИАНТ ОБА РАБОЧИЕ
+// 
+        let commentsArrayRes = Object.values(comments.data).filter(comment => (comment.postid ===  context.params.id) && comment.publish === true)
+        
         return {
             post: post.data,
-            comments: comments.data
+            comments: commentsArrayRes
         }
     }
 // data() {

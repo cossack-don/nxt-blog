@@ -27,6 +27,8 @@ import Post from '@/components/blog/Post.vue'
 import NewComment from '@/components/comments/NewComment.vue'
 import Comments from '@/components/comments/Comments.vue'
 
+import axios from 'axios'
+
 
 export default {
     components: {
@@ -35,31 +37,41 @@ export default {
         NewComment,
         
     },
-data() {
-    return {
-        post: {
+    async asyncData(context) {
+        let [post, comments] = await Promise.all([
+            axios.get(`https://nxt-blog-3562d-default-rtdb.firebaseio.com/posts/${context.params.id}.json`),
+            axios.get(`https://nxt-blog-3562d-default-rtdb.firebaseio.com/comments.json`)
+        ])
+        return {
+            post: post.data,
+            comments: comments.data
+        }
+    }
+// data() {
+//     return {
+//         post: {
                    
-          id:1,
-          title:'1 post',
-          discr:'lorem lorem lorem lorem lorem lorem lorem lorem 111111',
-          content:"lorem lorem lorem hahahahahahahahahahahahhahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh lorem lorem lorem hahahahahahahahahahahahhahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh lorem lorem lorem hahahahahahahahahahahahhahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ",
-          img:require('@/static/img/dog-1.jpg'),
+//           id:1,
+//           title:'1 post',
+//           discr:'lorem lorem lorem lorem lorem lorem lorem lorem 111111',
+//           content:"lorem lorem lorem hahahahahahahahahahahahhahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh lorem lorem lorem hahahahahahahahahahahahhahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh lorem lorem lorem hahahahahahahahahahahahhahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ",
+//           img:require('@/static/img/dog-1.jpg'),
           
        
-        },
+//         },
 
-        comments: [
-            {
-                name:'Alex',
-                text:'Lorem lorem lorem lore lorem'
-            },
-             {
-                name:'Gosha',
-                text:'Lorem lorem lorem lore lorem'
-            },
-        ]
-    }
-}
+//         comments: [
+//             {
+//                 name:'Alex',
+//                 text:'Lorem lorem lorem lore lorem'
+//             },
+//              {
+//                 name:'Gosha',
+//                 text:'Lorem lorem lorem lore lorem'
+//             },
+//         ]
+//     }
+// }
 }
 </script>
 

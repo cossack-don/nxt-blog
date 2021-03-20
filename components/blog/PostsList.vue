@@ -40,7 +40,7 @@ export default {
 .posts__wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 </style>

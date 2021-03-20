@@ -26,6 +26,7 @@
 </template>
 
 <script>
+// import axios from 'axios'
 // import Message from '@/components/UI/Message.vue'
 // import AppButton from '@/components/UI/controls/Button.vue'
 // import AppInput from '@/components/UI/controls/Input.vue'
@@ -51,12 +52,25 @@ data() {
 
 methods: {
     onSubmit() {
-        this.message = 'Submit'
-        console.log(this.comment)
+        this.$store.dispatch('actionAddComment',
+         {
+            postid:'',
+            publish:false,
+            ...this.comment
+        })
+        .then( () => {
+        this.message = 'Submited'
 
-        // reset
+                // reset
         this.comment.name = ''
         this.comment.text = ''
+        })
+        .catch(e => console.log(e))
+
+        
+        // console.log(this.comment)
+
+
     }
 }
 }

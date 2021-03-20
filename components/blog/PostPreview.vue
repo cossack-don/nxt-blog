@@ -33,7 +33,7 @@ computed: {
 
 <style lang="scss">
 .post-preview {
-    max-width: 33%;
+    width: 33%;
     padding: 16px;
     margin-bottom: 20px;
     text-align: center;

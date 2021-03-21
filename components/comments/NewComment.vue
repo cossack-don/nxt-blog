@@ -61,7 +61,7 @@ methods: {
         this.$store.dispatch('actionAddComment',
          {
             postid:this.postid,
-            publish:true,
+            publish:false,
             ...this.comment
         })
         .then( () => {

@@ -18,8 +18,11 @@ layout:'admin',
 
         return axios.get(`https://nxt-blog-3562d-default-rtdb.firebaseio.com/posts/${context.params.postid}.json` )
         .then(res => {
+            
         return {
+            
             post:{
+                
                 ...res.data,
                 id:context.params.postid
             }

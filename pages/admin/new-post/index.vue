@@ -17,6 +17,7 @@ methods: {
     onSubmit(post) {
         // console.log('post added!')
         // console.log(post)
+        
         this.$store.dispatch('actionAddPost', post)
         .then( () => {
             this.$router.push('/admin')
